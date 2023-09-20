@@ -14,9 +14,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,19 +34,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.compose1.bottomsheet.BottomSheetExample
-import com.example.compose1.marqueue.TextMarqueue
-import com.example.compose1.navigationDrawer.MainDrawerScreen
-import com.example.compose1.navigationDrawer.NavDrawerNew
-import com.example.compose1.scrollDirection.ScrollDirection
+import com.example.compose1.canvas.CarSeatParent
+import com.example.compose1.canvas.Seat
 import com.example.compose1.search.AppViewModel
-import com.example.compose1.slidingAnim.SlidingAnimScreen
 import com.example.compose1.stopwatch.StopWatchService
-import com.example.compose1.stopwatch.screens.StopWatchScreen
-import com.example.compose1.tablayout.TabLayout
 import com.example.compose1.ui.theme.Compose1Theme
 import com.example.compose1.ui.theme.Typography
-import com.example.compose1.webview.WebViewMainScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -80,7 +74,9 @@ class MainActivity : ComponentActivity() {
 //                Surface(modifier = Modifier.fillMaxSize()) {
 //                    BottomSheetExample()
 //                }
-                NavDrawerNew(navHostController = navHostController, closeApp = { finish() })
+//                NavDrawerNew(navHostController = navHostController, closeApp = { finish() })
+                val bookedList= listOf(Seat("A8"),Seat("B18"))
+                CarSeatParent(bookedList = bookedList)
             }
         }
     }
