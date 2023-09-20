@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
 //                    BottomSheetExample()
 //                }
 //                NavDrawerNew(navHostController = navHostController, closeApp = { finish() })
-                val bookedList= listOf(Seat("A8"),Seat("B18"))
+                val bookedList= listOf(Seat("A8"),Seat("B18"),Seat("25"))
                 CarSeatParent(bookedList = bookedList)
             }
         }
