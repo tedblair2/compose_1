@@ -36,6 +36,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.compose1.canvas.CarSeatParent
 import com.example.compose1.canvas.Seat
+import com.example.compose1.datetimepicker.DatePickerDialogCompose
 import com.example.compose1.search.AppViewModel
 import com.example.compose1.stopwatch.StopWatchService
 import com.example.compose1.ui.theme.Compose1Theme
@@ -75,8 +76,9 @@ class MainActivity : ComponentActivity() {
 //                    BottomSheetExample()
 //                }
 //                NavDrawerNew(navHostController = navHostController, closeApp = { finish() })
-                val bookedList= listOf(Seat("A8"),Seat("B18"),Seat("25"))
-                CarSeatParent(bookedList = bookedList)
+//                val bookedList= listOf(Seat("A8"),Seat("B18"),Seat("25"))
+//                CarSeatParent(bookedList = bookedList)
+                DatePickerDialogCompose()
             }
         }
     }

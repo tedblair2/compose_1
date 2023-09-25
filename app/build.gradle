@@ -30,6 +30,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -84,4 +85,8 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    //date picker
+    implementation "io.github.vanpra.compose-material-dialogs:datetime:0.8.1-rc"
+    //needed if minSdk is less than 26
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 }
