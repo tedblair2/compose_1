@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -37,6 +38,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose1.canvas.CarSeatParent
 import com.example.compose1.canvas.Seat
 import com.example.compose1.datetimepicker.DatePickerDialogCompose
+import com.example.compose1.otp.OtpFieldUi
 import com.example.compose1.search.AppViewModel
 import com.example.compose1.stopwatch.StopWatchService
 import com.example.compose1.ui.theme.Compose1Theme
@@ -78,7 +80,14 @@ class MainActivity : ComponentActivity() {
 //                NavDrawerNew(navHostController = navHostController, closeApp = { finish() })
 //                val bookedList= listOf(Seat("A8"),Seat("B18"),Seat("25"))
 //                CarSeatParent(bookedList = bookedList)
-                DatePickerDialogCompose()
+//                DatePickerDialogCompose()
+                Column(modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center) {
+                    OtpFieldUi(
+                        onOtpFilled = { Toast.makeText(this@MainActivity, "Otp code is $it", Toast.LENGTH_SHORT).show()}
+                    )
+                }
             }
         }
     }
