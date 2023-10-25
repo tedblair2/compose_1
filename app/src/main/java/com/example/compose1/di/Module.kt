@@ -1,6 +1,11 @@
 package com.example.compose1.di
 
 import androidx.room.Room
+import com.example.compose1.dispatchers.MyDispatchers
+import com.example.compose1.dispatchers.MyDispatchersImpl
+import com.example.compose1.internet.NetworkStatusService
+import com.example.compose1.internet.NetworkStatusServiceImpl
+import com.example.compose1.internet.NetworkViewModel
 import com.example.compose1.paging.PagingViewModel
 import com.example.compose1.paging.SearchViewModel
 import com.example.compose1.paging.UnsplashRepository
@@ -23,6 +28,9 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule= module {
+    single<MyDispatchers> {
+        MyDispatchersImpl()
+    }
     single {
         HttpClient(Android){
             install(Logging){
@@ -64,5 +72,11 @@ val appModule= module {
     }
     viewModel {
         SlidingAnimViewModel()
+    }
+    single<NetworkStatusService> {
+        NetworkStatusServiceImpl(get(),get())
+    }
+    viewModel {
+        NetworkViewModel(get())
     }
 }

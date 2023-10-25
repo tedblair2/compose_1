@@ -38,6 +38,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose1.canvas.CarSeatParent
 import com.example.compose1.canvas.Seat
 import com.example.compose1.datetimepicker.DatePickerDialogCompose
+import com.example.compose1.internet.NetworkUi
 import com.example.compose1.otp.OtpFieldUi
 import com.example.compose1.search.AppViewModel
 import com.example.compose1.stopwatch.StopWatchService
@@ -81,13 +82,14 @@ class MainActivity : ComponentActivity() {
 //                val bookedList= listOf(Seat("A8"),Seat("B18"),Seat("25"))
 //                CarSeatParent(bookedList = bookedList)
 //                DatePickerDialogCompose()
-                Column(modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center) {
-                    OtpFieldUi(
-                        onOtpFilled = { Toast.makeText(this@MainActivity, "Otp code is $it", Toast.LENGTH_SHORT).show()}
-                    )
-                }
+//                Column(modifier = Modifier.fillMaxSize(),
+//                    horizontalAlignment = Alignment.CenterHorizontally,
+//                    verticalArrangement = Arrangement.Center) {
+//                    OtpFieldUi(
+//                        onOtpFilled = { Toast.makeText(this@MainActivity, "Otp code is $it", Toast.LENGTH_SHORT).show()}
+//                    )
+//                }
+                NetworkUi()
             }
         }
     }
