@@ -1,5 +1,6 @@
 package com.example.compose1.paging.navigation.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -37,6 +38,7 @@ import com.example.compose1.paging.PagingViewModel
 import com.example.compose1.paging.navigation.PagingScreen
 import org.koin.androidx.compose.koinViewModel
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PagingHomeScreen(
     navHostController: NavHostController,
