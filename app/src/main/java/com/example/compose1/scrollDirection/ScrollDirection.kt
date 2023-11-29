@@ -1,5 +1,6 @@
 package com.example.compose1.scrollDirection
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ScrollDirection() {
     val lazyListState= rememberLazyListState()
@@ -42,7 +44,7 @@ fun TopAppBarScroll(lazyListState: LazyListState) {
                 easing = LinearOutSlowInEasing
             )
         )
-        .height(if (lazyListState.isScrollingUp()) 56.dp else 0.dp)) {
+        .height(if (lazyListState.isScrollingDown()) 56.dp else 0.dp)) {
         
         Text(text = "Top App Bar", color = Color.White, fontSize = 25.sp)
     }
@@ -50,7 +52,7 @@ fun TopAppBarScroll(lazyListState: LazyListState) {
 
 @Composable
 fun MainCollapseScreen(lazyListState: LazyListState) {
-    val padding=if (lazyListState.isScrollingUp()) 56.dp  else 0.dp
+    val padding=if (lazyListState.isScrollingDown()) 56.dp  else 0.dp
     LazyColumn(
         modifier = Modifier.padding(top = padding).fillMaxWidth().fillMaxHeight(),
         state = lazyListState,
@@ -68,9 +70,9 @@ fun MainCollapseScreen(lazyListState: LazyListState) {
 }
 
 @Composable
-fun LazyListState.isScrollingUp():Boolean{
-    var previousIndex by remember(this) { mutableStateOf(firstVisibleItemIndex) }
-    var previousScrollOffset by remember(this) { mutableStateOf(firstVisibleItemScrollOffset) }
+fun LazyListState.isScrollingDown():Boolean{
+    var previousIndex by remember(this) { mutableIntStateOf(firstVisibleItemIndex) }
+    var previousScrollOffset by remember(this) { mutableIntStateOf(firstVisibleItemScrollOffset) }
     return remember(this) {
         derivedStateOf {
             if (previousIndex != firstVisibleItemIndex) {

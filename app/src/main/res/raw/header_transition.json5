@@ -1,0 +1,11 @@
+{
+  KeyFrames: {
+    KeyAttributes: [
+      {
+        target: ['username'],
+        frames: [0,50,100],
+        translationX: [0, 110, 0],
+      }
+    ]
+  }
+}

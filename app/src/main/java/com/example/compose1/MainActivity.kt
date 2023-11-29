@@ -13,11 +13,14 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Slider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,8 +41,16 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose1.canvas.CarSeatParent
 import com.example.compose1.canvas.Seat
 import com.example.compose1.datetimepicker.DatePickerDialogCompose
+import com.example.compose1.gestures.DraggableContent
+import com.example.compose1.gestures.VerticalAndHorizontalDrag
+import com.example.compose1.gestures.VerticalAndHorizontalLongPressDrag
 import com.example.compose1.internet.NetworkUi
+import com.example.compose1.motionlayout.ConstraintLayoutExample
+import com.example.compose1.motionlayout.MotionLayoutExample
+import com.example.compose1.motionlayout.MotionSceneExample
 import com.example.compose1.otp.OtpFieldUi
+import com.example.compose1.scrollDirection.ScrollDirection
+import com.example.compose1.scrollDirection.ScrollPosition
 import com.example.compose1.search.AppViewModel
 import com.example.compose1.stopwatch.StopWatchService
 import com.example.compose1.ui.theme.Compose1Theme
@@ -89,7 +100,25 @@ class MainActivity : ComponentActivity() {
 //                        onOtpFilled = { Toast.makeText(this@MainActivity, "Otp code is $it", Toast.LENGTH_SHORT).show()}
 //                    )
 //                }
-                NetworkUi()
+//                NetworkUi()
+//                DraggableContent()
+//                VerticalAndHorizontalDrag()
+//                VerticalAndHorizontalLongPressDrag()
+//                var progress by remember {
+//                    mutableFloatStateOf(0f)
+//                }
+//                Box(modifier = Modifier.fillMaxSize()){
+//                    MotionLayoutExample(progress = progress,
+//                        modifier = Modifier.align(Alignment.TopCenter))
+//                    Slider(value = progress,
+//                        onValueChange ={progress=it},
+//                        modifier = Modifier.align(Alignment.Center))
+//                }
+//                ScrollPosition()
+//                ScrollDirection()
+//                MotionLayoutExample()
+//                ConstraintLayoutExample()
+                MotionSceneExample()
             }
         }
     }

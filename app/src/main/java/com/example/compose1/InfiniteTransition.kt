@@ -31,7 +31,7 @@ fun InfiniteTransitionExample() {
                 },
                 repeatMode = RepeatMode.Restart,
                 initialStartOffset = StartOffset(offsetMillis = delay, offsetType = StartOffsetType.Delay)
-            )
+            ), label = "load_anim"
         )
     }
     val distance= with(LocalDensity.current){

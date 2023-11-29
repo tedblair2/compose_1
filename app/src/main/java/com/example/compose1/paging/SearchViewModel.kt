@@ -8,7 +8,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.compose1.model.UnsplashImage
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
@@ -21,6 +23,11 @@ class SearchViewModel(
 
     private val _searchedImages= MutableStateFlow<PagingData<UnsplashImage>>(PagingData.empty())
     val searchedImages: StateFlow<PagingData<UnsplashImage>> = _searchedImages
+
+    val images:StateFlow<PagingData<UnsplashImage>>
+        get() = unsplashRepository.getSearchImages(searchText.value)
+            .cachedIn(viewModelScope)
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000),PagingData.empty())
 
     fun setSearchText(query: String){
         _searchText.value=query
